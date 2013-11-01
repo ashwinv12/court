@@ -16,19 +16,16 @@ app.controller('CourtCtrl', ['$scope',
 				name: 'Tim',
 				color: '#FF0000',
 				number: '1',
-				twos: '0'
 			},
 			{
 				name: 'Rhead',
 				color: '#00FF00',
-				number: '13',
-				twos: '0'
+				number: '13'
 			},
 			{
 				name: 'Blaine',
 				color: '#0000FF',
-				number: '27',
-				twos: '0'
+				number: '27'
 			}
 		];
 
@@ -54,12 +51,10 @@ app.directive('court',
 			templateUrl: 'court.html',
 			replace: true,
 			controller: function($scope){
-				$scope.baskets = [];
-				$scope.missedShots = [];
-				$scope.removedShots = [];
+				$scope.allshots = [];
 
-				$scope.twos = 0;
-				$scope.threes = 0;
+				$scope.twosmade = 0;
+				$scope.threesmade = 0;
 				$scope.shots = 0;
 				$scope.threepointshots = 0;
 
@@ -96,18 +91,19 @@ app.directive('court',
 						// 	$scope.removeShot(basket);
 						// }
 						// else {
-						$scope.baskets.push({
+						$scope.allshots.push({
 							x: $event.offsetX / ($scope.size / 100),
 							y: $event.offsetY / ($scope.size / 100),
 							color: '#CCFBA8',
 							strokeColor: '#87B864',
-							value: value
+							value: value,
+							type: 'made'
 						});
 						
 						if (value === 2) {
-							$scope.twos++;
+							$scope.twosmade++;
 						} else {
-							$scope.threes++;
+							$scope.threesmade++;
 							$scope.threepointshots++;
 						}
 						$scope.shots++;
@@ -119,69 +115,49 @@ app.directive('court',
 					
 						// console.log($event.offsetX + ':' +$scope.width / 100);
 						// console.log($scope.height / 100);
-						$scope.missedShots.push({
+						$scope.allshots.push({
 							x: $event.offsetX / ($scope.size / 100),
 							y: $event.offsetY / ($scope.size / 100),
 							color: '#FFB7AA',
 							strokeColor: '#FF856F',
-							value: value
+							value: value,
+							type: 'missed'
 						});
 						
 						if (value === 2) {
-							// $scope.twos--;
+							// $scope.twosmade--;
 						} else {
-							// $scope.threes++;
+							// $scope.threesmade++;
 							$scope.threepointshots++;
 						}
 						$scope.shots++;
 					
-				};
-				$scope.makeMissed = function(basket) {
-					if ($scope.editingMode) {
-						$scope.baskets.forEach(function(b, i) {
-							if (b === basket) {
-								$scope.baskets.splice(i , 1);
-								return;
-							}
-						});
-
-						$scope.missedShots.push(basket);
-
-
-						if (basket.value === 2) {
-							$scope.twos--;
-						} else {
-							$scope.threes--;
-						}
-					}
 				};
 
 				$scope.removeShot = function(basket, $event) {
 
 					
 					if ($scope.removingShots) {
-						// console.log("inside first if")
-						console.log("Original shots" + $scope.shots);
 						$scope.shots--;
-						console.log("New shots" + $scope.shots);	
-						if(basket.value===3) {
+						var basketType = basket.type;
+						var basketValue = basket.value;
+						console.log(basketValue);
+						if(basketValue===3) {
 							$scope.threepointshots--;
 						}
-						if(basket.value===2) {
-							$scope.twos--;
-						}
-						$scope.baskets.forEach(function(b, i) {
-							if (b === basket) {
-								// console.log("inside second if");
-								$scope.baskets.splice(i , 1);
-								return;
+						if (basketType==="made") {
+							if(basketValue===3) {
+								// $scope.threepointshots--;
+								$scope.threesmade--;
 							}
-							
-						});
-						$scope.missedShots.forEach(function(b, i) {
+							if(basketValue===2) {
+								$scope.twosmade--;
+							}
+						}
+						
+						$scope.allshots.forEach(function(b, i) {
 							if (b === basket) {
-								// console.log("inside second if");
-								$scope.missedShots.splice(i , 1);
+								$scope.allshots.splice(i , 1);
 								return;
 							}
 							

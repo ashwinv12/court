@@ -14,9 +14,9 @@
 </head>
 <body ng-controller="CourtCtrl">
 	<h1 class="ui dividing header">Shooting Chart</h1>
-	<!-- <h2>Twos - {{twos}}</h2>
-	<h2>Threes - {{threes}}</h2>
-	<h2>Points - {{twos*2 + threes*3}}</h2>
+	<!-- <h2>twosmade - {{twosmade}}</h2>
+	<h2>threesmade - {{threesmade}}</h2>
+	<h2>Points - {{twosmade*2 + threesmade*3}}</h2>
 	<ul>
 		<li ng-repeat="player in players" ng-style="{background: player.color}" ng-click="setCurrentPlayer($index)">{{player.name}}</li>
 	</ul> -->
@@ -39,13 +39,13 @@
       <tr ng-repeat="player in players"  ng-click="setCurrentPlayer($index)" ng-class="{highlighted : currentPlayer == $index}">
         <td>{{player.number}}</td> <!-- number -->
         <td>{{player.name}}</td> <!-- name -->
-        <td>{{twos+threes}}</td> <!-- FGM -->
+        <td>{{twosmade+threesmade}}</td> <!-- FGM -->
         <td>{{shots}}</td> <!-- FGA -->
-        <td class="percents">{{shots!=0 ? (((twos+threes)/shots)*100).toFixed(1) : 0}}%</td> <!-- FG% -->
-        <td>{{threes}}</td> <!-- 3PM -->
+        <td class="percents">{{shots!=0 ? (((twosmade+threesmade)/shots)*100).toFixed(1) : 0}}%</td> <!-- FG% -->
+        <td>{{threesmade}}</td> <!-- 3PM -->
         <td>{{threepointshots}}</td> <!-- 3PA --> 
-        <td class="percents">{{threepointshots!=0 ? (((threes)/threepointshots)*100).toFixed(1) : 0}}%</td> <!-- 3FG% -->
-        <td>{{twos*2 + threes*3}}</td> <!-- Points -->
+        <td class="percents">{{threepointshots!=0 ? (((threesmade)/threepointshots)*100).toFixed(1) : 0}}%</td> <!-- 3FG% -->
+        <td>{{twosmade*2 + threesmade*3}}</td> <!-- Points -->
       </tr>
     </tbody>
   </table>

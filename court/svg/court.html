@@ -9,7 +9,7 @@
 	  	</div>
 	  </div>
 
-	  <div style="margin-left:30px;" class="ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
+	  <div style="margin-left:30px;" class="teal ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
 	  	<i class="check icon" ng-show="removingShots"></i>
 	  </div>
 
@@ -28,7 +28,7 @@
 			<circle class="two" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" cx="49.776" cy="47.85" r="11.681"/>
 			<rect class="two" x="38.095" y="6.426" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" width="23.362" height="41.424"/>
 		</g>
-		<g class="madeShot" ng-repeat="basket in baskets">
+		<g class="madeShot" ng-repeat="basket in allshots">
 			<!-- <image xlink:href="basketball.png" ng-attr-x="{{basket.x-3}}" ng-attr-y="{{basket.y-3}}" height="6px" width="6px"/> -->
 			<circle ng-attr-cx="{{basket.x}}" 
 							ng-attr-cy="{{basket.y}}" 
