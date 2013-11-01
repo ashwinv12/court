@@ -1,0 +1,91 @@
+body {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  background: url(bg5.png);
+  margin-top: 10px;
+  /*margin: 0px;*/
+  padding: 0px;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+  min-width: 320px;
+  /*cursor: url(cursor.gif), auto;*/
+}
+.roster {
+	width: 800px !important;
+  /*margin-top: 200px !important;*/
+  /*text-align: center;*/
+}
+.red {
+  background-color: red !important;
+}
+.highlighted {
+    /*color: #261F1D;*/
+    background-color: #C8D6E4;
+}
+table {
+  cursor: pointer;
+}
+.editgroup {
+  display: inline-block;
+}
+.editbackground {
+  background-color: rgba(0,0,0,0);
+}
+.fgplabel {
+  margin-left: -200px !important; 
+}
+th[title]:hover:after {
+  color: red;
+}
+
+/*Tool Tips*/
+[data-tip] {
+        position:relative;
+        cursor:pointer;
+}
+[data-tip]:before {
+        content:'';
+        /* hides the tooltip when not hovered */
+        display:none;
+        border:5px solid #1a1a1a;
+        /* 4 border technique to create the arrow */
+        border-top-color:#17607D;
+        border-right-color:transparent;
+        border-bottom-color:transparent;
+        border-left-color:transparent;
+        position:absolute;
+        top:-7px;
+        left:10px;
+        z-index:9999;
+        font-size:0;
+        line-height:0;
+        width:0;
+        height:0;
+}
+[data-tip]:after {
+        display:none;
+        content:attr(data-tip);
+        position:absolute;
+        top:-35px;
+        left:0px;
+        padding:5px 8px;
+        background:#17607D;
+        color: #FFF1CE;
+        z-index:9999;
+        font-size: 1em;
+        height:18px;
+        line-height:18px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        white-space:nowrap;
+        word-wrap:normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+        display:block;
+}
+
+
+.percents {
+  min-width: 75px;
+}

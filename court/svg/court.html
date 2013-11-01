@@ -1,0 +1,92 @@
+<div>
+	<td>
+	  <div class="ui buttons">
+	  	<div class="ui green labeled icon button" ng-click="addingMadeShots = true; removingShots = false" ng-class="{'labeled icon' : addingMadeShots && !removingShots}">Made
+	  		<i class="check icon" ng-show="addingMadeShots && !removingShots"></i>
+	  	</div>
+	  	<div class="ui negative button" ng-click="addingMadeShots = false; removingShots=false" ng-class="{'labeled right icon' : !addingMadeShots && !removingShots}">Missed
+	  		<i class="check icon" ng-hide="addingMadeShots || removingShots"></i>
+	  	</div>
+	  </div>
+
+	  <div style="margin-left:30px;" class="ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
+	  	<i class="check icon" ng-show="removingShots"></i>
+	  </div>
+
+	</td>
+	<div class="segment">
+	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" ng-attr-width="{{size}}" ng-attr-height="{{size}}">
+		<g class="three" ng-click="addCircle(3, $event)">
+			<polygon fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" points="87.891,85.524 11.661,85.389 11.661,6.426 87.891,6.426 
+				"/>
+		</g>
+		<g class="two" ng-click="addCircle(2, $event)">
+			<path class="two" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" d="M81.88,27.425c0,0.517-0.013,1.031-0.037,1.542
+				C81.039,45.983,66.989,59.53,49.776,59.53c-17.73,0-32.104-14.374-32.104-32.105"/>
+			<polyline class="two" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" points="17.673,28.968 17.673,6.426 81.88,6.426 81.843,28.967 
+				"/>
+			<circle class="two" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" cx="49.776" cy="47.85" r="11.681"/>
+			<rect class="two" x="38.095" y="6.426" fill="#FFFFFF" stroke="#231F20" stroke-miterlimit="10" width="23.362" height="41.424"/>
+		</g>
+		<g class="madeShot" ng-repeat="basket in baskets">
+			<!-- <image xlink:href="basketball.png" ng-attr-x="{{basket.x-3}}" ng-attr-y="{{basket.y-3}}" height="6px" width="6px"/> -->
+			<circle ng-attr-cx="{{basket.x}}" 
+							ng-attr-cy="{{basket.y}}" 
+							r="3" 
+							ng-attr-fill="{{basket.color}}"
+							ng-attr-stroke="{{basket.strokeColor}}"
+							stroke-width="0.5"  
+							ng-click="removeShot(basket, $event)"
+							style="pointer-events: all}"/>
+
+			<!-- centered number -->
+			<!-- <text ng-attr-x="{{basket.x-.8}}"
+						ng-attr-y="{{basket.y+1}}"
+			      font-family="Verdana" 
+			      font-size="3"
+			      fill="#FFFFFF">
+			      	{{basket.value}}
+			</text> -->
+			<!-- top right number -->
+			<!-- <text ng-attr-x="{{basket.x+2.2}}"
+						ng-attr-y="{{basket.y-2.2}}"
+			      font-family="Verdana" 
+			      font-size="2"
+			      fill="#444444">
+			      	{{basket.value}}
+			</text> -->
+		</g>
+		<g class="missedShot" ng-repeat="missedShot in missedShots" opacity="0.6">
+			<!-- <image 	xlink:href="basketball.png" 
+							ng-attr-x="{{missedShot.x-3}}" 
+							ng-attr-y="{{missedShot.y-3}}" 
+							height="6px" 
+							width="6px" /> -->
+			 <circle ng-attr-cx="{{missedShot.x}}" 
+							ng-attr-cy="{{missedShot.y}}" 
+							r="3" 
+							fill="#FFB7AA"
+							stroke="#FF856F" 
+							stroke-width="0.5"
+							ng-click="removeShot(missedShot, $event)"
+							style="pointer-events: all}"/> 
+			<!-- centered number						 -->
+			<!-- <text ng-attr-x="{{missedShot.x-.8}}" 
+						ng-attr-y="{{missedShot.y+1}}"
+			      font-family="Verdana" 
+			      font-size="3"
+			      fill="#FFFFFF">
+			      	{{missedShot.value}}
+			</text> -->
+			<!-- top right number -->
+			<!-- <text ng-attr-x="{{missedShot.x+2.2}}"
+						ng-attr-y="{{missedShot.y-2.2}}"
+			      font-family="Verdana" 
+			      font-size="2"
+			      fill="#444444">
+			      	{{missedShot.value}}
+			</text> -->
+		</g>
+	</svg>
+	</div>
+</div>

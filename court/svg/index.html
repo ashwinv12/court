@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" ng-app="court">
+<head>
+	<meta charset="UTF-8">
+	<title>Court</title>
+	<script src="d3.v3.js" charset="utf-8"></script>
+	<script src="angular.min.js"></script>
+	<script src="jquery.js"></script>
+	<script src="court.js"></script>
+  <script src="semantic/packaged/javascript/semantic.js"></script>
+	<script src="tablesort.js"></script>
+	<link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-controller="CourtCtrl">
+	<h1 class="ui dividing header">Shooting Chart</h1>
+	<!-- <h2>Twos - {{twos}}</h2>
+	<h2>Threes - {{threes}}</h2>
+	<h2>Points - {{twos*2 + threes*3}}</h2>
+	<ul>
+		<li ng-repeat="player in players" ng-style="{background: player.color}" ng-click="setCurrentPlayer($index)">{{player.name}}</li>
+	</ul> -->
+	<table class="ui sortable celled table segment roster">
+    <!-- <thead> -->
+    <tbody>
+      <tr>
+        <th><text>Number</text></th>
+        <th><text>Player</text></th>
+        <th><text data-tip="Field Goals Made">FGM</text></th>
+        <th><text data-tip="Field Goals Attempted">FGA</text></th>
+        <th><text data-tip="Field Goal Percentage">FG%</text></th>
+        <th><text data-tip="3 Point Field Goals Made">3PM</text></th>
+        <th><text data-tip="3 Point Field Goals Attempted">3PA</text></th>      
+        <th><text data-tip="3 Point Field Goal Percentage">3FG%</text></th>
+        <th><text>Points</text></th>
+      </tr>
+    <!-- </thead> -->
+    
+      <tr ng-repeat="player in players"  ng-click="setCurrentPlayer($index)" ng-class="{highlighted : currentPlayer == $index}">
+        <td>{{player.number}}</td> <!-- number -->
+        <td>{{player.name}}</td> <!-- name -->
+        <td>{{twos+threes}}</td> <!-- FGM -->
+        <td>{{shots}}</td> <!-- FGA -->
+        <td class="percents">{{shots!=0 ? (((twos+threes)/shots)*100).toFixed(1) : 0}}%</td> <!-- FG% -->
+        <td>{{threes}}</td> <!-- 3PM -->
+        <td>{{threepointshots}}</td> <!-- 3PA --> 
+        <td class="percents">{{threepointshots!=0 ? (((threes)/threepointshots)*100).toFixed(1) : 0}}%</td> <!-- 3FG% -->
+        <td>{{twos*2 + threes*3}}</td> <!-- Points -->
+      </tr>
+    </tbody>
+  </table>
+  
+  <table>
+    <tr class="editbackground">
+      
+      <!-- <td>
+        <button class="negative ui button made-missedbutton" ng-click="madeormissed = !madeormissed">Add Missed Shot</button>
+      </td> -->
+    </tr>
+  </table>
+    <!-- <td><button class="positive ui top attached button editbutton" ng-click="editingMode = !editingMode">Edit</button>
+    <h3 class="ui blue header editmessage">You are in EDITING MODE</h3></td> -->
+  
+  
+ 
+  <!-- <p ng-show="editingMode">Editing</p> -->
+  <!-- <p>Active player - {{players[currentPlayer].name}}</p> -->
+
+
+    <court class="ui attached court" size="500"></court>
+
+
+
+  <!-- // <script src= "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+</body>
+</html>
