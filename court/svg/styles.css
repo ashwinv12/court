@@ -89,3 +89,17 @@ th[title]:hover:after {
 .percents {
   min-width: 75px;
 }
+.shotvalslabel {
+  margin-left: 30px;
+  display: inline-block;
+  /*margin-top: 10px;*/
+}
+.nomarginr {
+  margin-right: 0px !important;
+}
+.cpointer {
+  cursor: pointer;
+}
+.display-ib {
+  display:inline-block !important;
+}

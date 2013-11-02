@@ -1,6 +1,8 @@
-// $(document).ready(function () {
-// 	// $("table").tablesort();     
-// });
+$(document).ready(function () {
+	// $("table").tablesort();
+	var x = $(window).height();
+	console.log(x);
+});
 
 
 
@@ -60,13 +62,15 @@ app.directive('court',
 
 				// $scope.editingMode = false;
 				$scope.addingMadeShots = true; 
-				$scope.removingShots = false; 
+				$scope.removingShots = false;  
+				$scope.showingValues = false;  
+				$scope.test = false;  
 
 				// $scope.circleStyle = function() {
 				// 	if ($scope.editingMode) {
 				// 		return {};
 				// 	}
-
+     
 				// 	return {
 				// 		'pointer-events': 'none'
 				// 	};

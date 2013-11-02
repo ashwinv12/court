@@ -13,6 +13,15 @@
 	  	<i class="check icon" ng-show="removingShots"></i>
 	  </div>
 
+	  <!-- <div style="margin-left:30px;" class="ui button" ng-click="showingValues = !showingValues" ng-class="{'active' : showingValues}">Shot Values
+	  </div> -->
+	  
+	  <div class="display-ib" style="margin-left:40px;" ng-click="showingValues = !showingValues">
+	  	<i class="large empty checkbox icon nomarginr" ng-show="!showingValues"></i>
+	  	<i class="large checkmark sign icon nomarginr" ng-hide="!showingValues"></i>
+	  	<h4 class="ui header cpointer display-ib">Shot Values</h4>
+	  </div>
+	  
 	</td>
 	<div class="segment">
 	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" ng-attr-width="{{size}}" ng-attr-height="{{size}}">
@@ -37,16 +46,17 @@
 							ng-attr-stroke="{{basket.strokeColor}}"
 							stroke-width="0.5"  
 							ng-click="removeShot(basket, $event)"
-							style="pointer-events: all}"/>
+							style="pointer-events: all"/>
 
 			<!-- centered number -->
-			<!-- <text ng-attr-x="{{basket.x-.8}}"
+			<text ng-attr-x="{{basket.x-.8}}"
 						ng-attr-y="{{basket.y+1}}"
-			      font-family="Verdana" 
+			      font-family="Verdana" 	
 			      font-size="3"
-			      fill="#FFFFFF">
+			      fill="black"
+			      ng-show="showingValues"s>
 			      	{{basket.value}}
-			</text> -->
+			</text>
 			<!-- top right number -->
 			<!-- <text ng-attr-x="{{basket.x+2.2}}"
 						ng-attr-y="{{basket.y-2.2}}"
@@ -71,13 +81,14 @@
 							ng-click="removeShot(missedShot, $event)"
 							style="pointer-events: all}"/> 
 			<!-- centered number						 -->
-			<!-- <text ng-attr-x="{{missedShot.x-.8}}" 
+			<text ng-attr-x="{{missedShot.x-.8}}" 
 						ng-attr-y="{{missedShot.y+1}}"
 			      font-family="Verdana" 
 			      font-size="3"
-			      fill="#FFFFFF">
+			      fill="black"
+			      ng-show="showingValues">
 			      	{{missedShot.value}}
-			</text> -->
+			</text>
 			<!-- top right number -->
 			<!-- <text ng-attr-x="{{missedShot.x+2.2}}"
 						ng-attr-y="{{missedShot.y-2.2}}"
