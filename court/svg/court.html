@@ -12,17 +12,15 @@
 	  <div style="margin-left:30px;" class="teal ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
 	  	<i class="check icon" ng-show="removingShots"></i>
 	  </div>
-
-	  <!-- <div style="margin-left:30px;" class="ui button" ng-click="showingValues = !showingValues" ng-class="{'active' : showingValues}">Shot Values
-	  </div> -->
 	  
-	  <div class="display-ib" style="margin-left:40px;" ng-click="showingValues = !showingValues">
+	  <div class="display-ib cpointer" style="margin-left:40px;" ng-click="showingValues = !showingValues">
 	  	<i class="large empty checkbox icon nomarginr" ng-show="!showingValues"></i>
 	  	<i class="large checkmark sign icon nomarginr" ng-hide="!showingValues"></i>
 	  	<h4 class="ui header cpointer display-ib">Shot Values</h4>
-	  </div>
-	  
+	  </div>  
 	</td>
+
+
 	<div class="segment">
 	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" ng-attr-width="{{size}}" ng-attr-height="{{size}}">
 		<g class="three" ng-click="addCircle(3, $event)">

@@ -98,7 +98,7 @@ th[title]:hover:after {
   margin-right: 0px !important;
 }
 .cpointer {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 .display-ib {
   display:inline-block !important;
