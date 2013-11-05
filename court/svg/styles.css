@@ -9,9 +9,13 @@ body {
   min-width: 320px;
   /*cursor: url(cursor.gif), auto;*/
 }
+.column {
+  /*width: 50% !important;*/
+}
 .roster {
 	width: 800px !important;
-  /*margin-top: 200px !important;*/
+  margin-top: 82px !important;
+  margin-left: -200px !important;
   /*text-align: center;*/
 }
 .red {
@@ -103,3 +107,7 @@ th[title]:hover:after {
 .display-ib {
   display:inline-block !important;
 }
+th {
+  cursor: pointer !important;
+}
+

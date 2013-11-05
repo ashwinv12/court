@@ -9,7 +9,7 @@
 	  	</div>
 	  </div>
 
-	  <div style="margin-left:30px;" class="teal ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
+	  <div style="margin-left:30px;" class="ui button" ng-click="removingShots = !removingShots" ng-class="{'labeled right icon' : removingShots}">Remove Shot
 	  	<i class="check icon" ng-show="removingShots"></i>
 	  </div>
 	  
@@ -52,7 +52,8 @@
 			      font-family="Verdana" 	
 			      font-size="3"
 			      fill="black"
-			      ng-show="showingValues"s>
+			      ng-show="showingValues"
+			      style="cursor:default;">
 			      	{{basket.value}}
 			</text>
 			<!-- top right number -->
@@ -84,7 +85,8 @@
 			      font-family="Verdana" 
 			      font-size="3"
 			      fill="black"
-			      ng-show="showingValues">
+			      ng-show="showingValues"
+			      style="cursor:default;">
 			      	{{missedShot.value}}
 			</text>
 			<!-- top right number -->

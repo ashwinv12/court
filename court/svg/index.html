@@ -8,10 +8,10 @@
 	<script src="jquery.js"></script>
 	<script src="court.js"></script>
   <script src="semantic/packaged/javascript/semantic.js"></script>
-	<script src="tablesort.js"></script>
-	<link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
+  <script src="tablesort.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/packaged/css/semantic.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
-	<!-- <link rel="stylesheet" type="text/css" href="checkboxes.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="checkboxes.css"> -->
 </head>
 <body ng-controller="CourtCtrl">
 	<h1 class="ui dividing header">Shooting Chart</h1>
@@ -21,58 +21,54 @@
 	<ul>
 		<li ng-repeat="player in players" ng-style="{background: player.color}" ng-click="setCurrentPlayer($index)">{{player.name}}</li>
 	</ul> -->
-	<table class="ui sortable celled table segment roster">
-    <!-- <thead> -->
-    <tbody>
-      <tr>
-        <th><text>Number</text></th>
-        <th><text>Player</text></th>
-        <th><text data-tip="Field Goals Made">FGM</text></th>
-        <th><text data-tip="Field Goals Attempted">FGA</text></th>
-        <th><text data-tip="Field Goal Percentage">FG%</text></th>
-        <th><text data-tip="3 Point Field Goals Made">3PM</text></th>
-        <th><text data-tip="3 Point Field Goals Attempted">3PA</text></th>      
-        <th><text data-tip="3 Point Field Goal Percentage">3FG%</text></th>
-        <th><text>Points</text></th>
-      </tr>
-    <!-- </thead> -->
+  <div class="ui two column grid">
+    <div class="column">
+      <court class="ui attached court" size="500"></court>
+    </div>
     
-      <tr ng-repeat="player in players"  ng-click="setCurrentPlayer($index)" ng-class="{highlighted : currentPlayer == $index}">
-        <td>{{player.number}}</td> <!-- number -->
-        <td>{{player.name}}</td> <!-- name -->
-        <td>{{twosmade+threesmade}}</td> <!-- FGM -->
-        <td>{{shots}}</td> <!-- FGA -->
-        <td class="percents">{{shots!=0 ? (((twosmade+threesmade)/shots)*100).toFixed(1) : 0}}%</td> <!-- FG% -->
-        <td>{{threesmade}}</td> <!-- 3PM -->
-        <td>{{threepointshots}}</td> <!-- 3PA --> 
-        <td class="percents">{{threepointshots!=0 ? (((threesmade)/threepointshots)*100).toFixed(1) : 0}}%</td> <!-- 3FG% -->
-        <td>{{twosmade*2 + threesmade*3}}</td> <!-- Points -->
-      </tr>
-    </tbody>
-  </table>
-  
-  <table>
-    <tr class="editbackground">
-      
-      <!-- <td>
-        <button class="negative ui button made-missedbutton" ng-click="madeormissed = !madeormissed">Add Missed Shot</button>
-      </td> -->
-    </tr>
-  </table>
-    <!-- <td><button class="positive ui top attached button editbutton" ng-click="editingMode = !editingMode">Edit</button>
-    <h3 class="ui blue header editmessage">You are in EDITING MODE</h3></td> -->
-  
-  
- 
-  <!-- <p ng-show="editingMode">Editing</p> -->
-  <!-- <p>Active player - {{players[currentPlayer].name}}</p> -->
+    <div class="column">
+     <table class="ui celled sortable table segment roster">
+      <!-- <thead> -->
+      <tbody>
+        <tr>
+          <th><text>Number</text></th>
+          <th><text>Player</text></th>
+          <th><text id="popup" data-title="Field Goals Made" data-content="The number of 2 pointers and 3 pointers made.">FGM</text></th>
+          <th><text data-title="Field Goals Attempted" data-content="The total number of shots taken.">FGA</text></th>
+          <th><text data-title="Field Goal Percentage" data-content="The percentage of the number of shots taken that a player makes.">FG%</text></th>
+          <th><text data-title="3 Point Field Goals Made" data-content="The total number of 3 pointers made.">3PM</text></th>
+          <th><text data-title="3 Point Field Goals Attempted" data-content="The total number of 3 pointers taken.">3PA</text></th>      
+          <th><text data-title="3 Point Field Goal Percentage" data-content="The percentage of the number of 3 pointers taken that a player makes.">3FG%</text></th>
+          <th><text data-title="Points" data-content="The total number of points a player has scored." data-position="top left">PTS</text></th>
+        </tr>
+        <!-- </thead> -->
 
-    <court class="ui attached court" size="500"></court>
+        <tr ng-repeat="player in players"  ng-click="setCurrentPlayer($index)" ng-class="{highlighted : currentPlayer == $index}">
+          <td>{{player.number}}</td> <!-- number -->
+          <td>{{player.name}}</td> <!-- name -->
+          <td>{{twosmade+threesmade}}</td> <!-- FGM -->
+          <td>{{shots}}</td> <!-- FGA -->
+          <td class="percents">{{shots!=0 ? (((twosmade+threesmade)/shots)*100).toFixed(1) : 0}}%</td> <!-- FG% -->
+          <td>{{threesmade}}</td> <!-- 3PM -->
+          <td>{{threepointshots}}</td> <!-- 3PA --> 
+          <td class="percents">{{threepointshots!=0 ? (((threesmade)/threepointshots)*100).toFixed(1) : 0}}%</td> <!-- 3FG% -->
+          <td>{{twosmade*2 + threesmade*3}}</td> <!-- Points -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+      <!-- <td><button class="positive ui top attached button editbutton" ng-click="editingMode = !editingMode">Edit</button>
+      <h3 class="ui blue header editmessage">You are in EDITING MODE</h3></td> -->
 
 
 
+      <!-- <p ng-show="editingMode">Editing</p> -->
+      <!-- <p>Active player - {{players[currentPlayer].name}}</p> -->
 
-  <!-- // <script src= "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+    </div>
 
-</body>
-</html>
+
+    <!-- // <script src= "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+
+  </body>
+  </html>

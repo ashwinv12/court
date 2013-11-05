@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+
+	$('text').popup();
+	$('table').tablesort();
+	
+
+});
+
+
 'use strict';
 
 var app = window.angular.module('court', []);
